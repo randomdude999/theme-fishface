@@ -22,7 +22,7 @@ Shows an ASCII fish instead of a prompt.
 ### Installation
 
 ```
-omf install fishface
+fisher i randomdude999/fishface
 ```
 
 ### Configuration

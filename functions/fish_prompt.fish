@@ -5,8 +5,8 @@ set -g fishface_fish '><((("> '
 # display things
 set -g fishface_display_status 1
 set -g fishface_display_jobs 1
-set -g fishface_display_git 1  # Must have git
-set -g fishface_display_git_dirty 1  # No effect if fishface_display_git is unset
+set -g fishface_display_git 1
+set -g fishface_display_git_dirty 1
 set -g fishface_display_virtual_env 1
 set -g fishface_display_root 1
 set -g fishface_display_readonly 1
@@ -26,8 +26,8 @@ function fish_prompt
     set_color -o $fishface_status_color
   else if test (jobs -c | wc -l) -gt 0 -a -n $fishface_display_jobs
     set_color -o $fishface_jobs_color
-  else if test (git rev-parse ^&1 | wc -l) -eq 0 -a -n $fishface_display_git
-    if test (git status -s ^/dev/null | wc -l) -gt 0 -a -n $fishface_display_git_dirty
+  else if test (git_is_repo; echo $status) -eq 0 -a -n $fishface_display_git
+    if test (git_is_dirty; echo $status) -eq 0 -a -n $fishface_display_git_dirty
       set_color -o $fishface_git_dirty_color
     else
       set_color -o $fishface_git_color
