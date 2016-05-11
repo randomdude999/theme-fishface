@@ -32,4 +32,4 @@ You can also disable particular things, for example if you don't want the fish t
 
 ### Authors
 
-Originally be krisleech, improved my randomdude999
+Originally by krisleech, improved by randomdude999
