@@ -1,8 +1,12 @@
-## FishFace
+[![Slack Room][slack-badge]][slack-link]
+[slack-link]: https://fisherman-wharf.herokuapp.com/
+[slack-badge]: https://fisherman-wharf.herokuapp.com/badge.svg
 
-Shows an ASCII fish instead of a prompt.
+## Fishface
 
-![screenshot](https://cloud.githubusercontent.com/assets/10598847/15026896/6ea5d9ec-1249-11e6-9144-58fccbc28b72.png)
+Simple prompt that shows an ASCII fish instead of a prompt.
+
+![Screenshot](https://cloud.githubusercontent.com/assets/10598847/15026896/6ea5d9ec-1249-11e6-9144-58fccbc28b72.png)
 
 ### Fish colors
 
@@ -19,17 +23,46 @@ Shows an ASCII fish instead of a prompt.
 | Orange | Directory not writable |
 | Blue | Normal |
 
-### Installation
+### Install
+
+With [fisherman](https://github.com/fisherman/fisherman)
 
 ```
-fisher i randomdude999/theme-fishface
+fisher randomdude999/theme-fishface
 ```
 
 ### Configuration
 
-In the beginning of the prompt script, there are some variable definitions. These can customise the colors. For example, if you want the fish to turn red when in a git repo, you would edit the line with `set -g fishface_git_color ...` to `set -g fishface_git_color red`.  
-You can also disable particular things, for example if you don't want the fish to change color when a virtualenv is active, you would comment out the line with `set -g fishface_display_virtual_env 1`.
+You can override some of the following default options in your *config.fish*:
+
+```fish
+set -g fishface_fish # Default is '><((("> '
+
+# Status, jobs, git, etc
+
+set -g fishface_display_status 1
+set -g fishface_display_jobs 1
+set -g fishface_display_git 1
+set -g fishface_display_git_dirty 1
+set -g fishface_display_virtual_env 1
+set -g fishface_display_root 1
+set -g fishface_display_readonly 1
+
+# Colors
+
+set -g fishface_default_color
+set -g fishface_status_color
+set -g fishface_jobs_color
+set -g fishface_git_color
+set -g fishface_git_dirty_color
+set -g fishface_virtual_env_color
+set -g fishface_root_color
+set -g fishface_readonly_color
+```
+
+You can also disable particular things, for example if you don't want the fish to change color when a virtualenv is active, you can set `set -g fishface_display_virtual_env 0`.
 
 ### Authors
 
-Originally by krisleech, improved by randomdude999
+Originally by [@krisleech](https://github.com/krisleech), improved by [@randomdude999](https://github.com/randomdude999)
+
