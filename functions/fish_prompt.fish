@@ -28,10 +28,10 @@ set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 function fish_prompt
     if test $status != 0
         set_color -o $fishface_status_color
-        
+
     else if test (jobs -c | wc -l) -gt 0 -a -n $fishface_display_jobs
         set_color -o $fishface_jobs_color
-    
+
     else if test (git_is_repo; echo $status) -eq 0 -a -n $fishface_display_git
 
         if test (git_is_dirty; echo $status) -eq 0 -a -n $fishface_display_git_dirty
@@ -39,10 +39,10 @@ function fish_prompt
         else
             set_color -o $fishface_git_color
         end
-        
+
     else if test -n "$VIRTUAL_ENV" -a -n $fishface_display_virtual_env
         set_color -o $fishface_virtual_env_color
-        
+
     else if test (id -u) = "0" -a -n $fishface_display_root
         set_color -o $fishface_root_color
 
@@ -52,8 +52,8 @@ function fish_prompt
     else
         set_color -o $fishface_default_color
     end
-    
+
     echo -n $fishface_fish
-    
+
     set_color normal
 end
